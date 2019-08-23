@@ -35,7 +35,7 @@ class FiguresController < ApplicationController
       @figure.titles << Title.find(params[:figure][:title_ids])
     else
       @new_title = Title.create(params[:title][:name])
-      @figure.landmarks << @new_landmark
+      @figure.titles << @new_title
     end
 
     redirect to "/figures/#{@figure.id}"
