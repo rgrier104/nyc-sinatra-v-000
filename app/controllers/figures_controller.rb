@@ -17,7 +17,7 @@ class FiguresController < ApplicationController
 
   get '/figures/:id' do
     @figure = Figure.find(params[:id])
-    
+
     erb :'/figures/show'
   end
 
@@ -35,14 +35,14 @@ class FiguresController < ApplicationController
 
     if !params[:figure][:landmark_ids].empty?
       @figure.landmarks << Landmark.find(params[:figure][:landmark_ids])
-    elsif !params[:landmark][:name] == " "
+    elsif params[:landmark][:name]
       @new_landmark = Landmark.create(params[:landmark][:name])
       @figure.landmarks << @new_landmark
     end
 
     if !params[:figure][:title_ids].empty?
       @figure.titles << Title.find(params[:figure][:title_ids])
-    elsif !params[:title][:name] == " "
+    elsif params[:title][:name]
       @new_title = Title.create(params[:title][:name])
       @figure.titles << @new_title
     end
