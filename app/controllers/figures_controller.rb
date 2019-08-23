@@ -39,8 +39,6 @@ class FiguresController < ApplicationController
       @figure.landmarks << @new_landmark
     end
 
-
-
     if !params[:figure][:title_ids].empty?
       @figure.titles << Title.find(params[:figure][:title_ids])
     else
