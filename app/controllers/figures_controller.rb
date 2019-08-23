@@ -56,8 +56,8 @@ class FiguresController < ApplicationController
     redirect to "/figures/#{@figure.id}"
   end
 
-  patch '/figures' do
-    
+  patch '/figures/:id' do
+    @figure = Figure.find()
 
     redirect to "figures/#{@figure.id}"
   end
