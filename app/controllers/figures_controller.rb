@@ -41,7 +41,7 @@ class FiguresController < ApplicationController
 
     if !params[:figure][:title_ids].empty?
       @figure.titles << Title.find(params[:figure][:title_ids])
-    else
+    elsif !params[:title][:name] == " "
       @new_title = Title.create(params[:title][:name])
       @figure.titles << @new_title
     end
