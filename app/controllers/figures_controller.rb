@@ -28,6 +28,10 @@ class FiguresController < ApplicationController
       params[:figure]["landmark_ids"] = []
     end
 
+    if !params[:figure].keys.include?("title_ids")
+      params[:figure]["title_ids"] = []
+    end
+
     if !params[:figure][:landmark_ids].empty?
       @figure.landmarks << Landmark.find(params[:figure][:landmark_ids])
     else
