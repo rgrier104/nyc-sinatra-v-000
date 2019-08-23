@@ -61,6 +61,7 @@ class FiguresController < ApplicationController
     @figure.update(params[:figure])
 
     if params[:landmark][:name]
+      @figure.landmarks << Landmark.create(name: params[:landmark][:name])
 
     redirect to "figures/#{@figure.id}"
   end
