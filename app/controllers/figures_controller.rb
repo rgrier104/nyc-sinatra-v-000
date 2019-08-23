@@ -62,6 +62,7 @@ class FiguresController < ApplicationController
 
     if params[:landmark][:name]
       @figure.landmarks << Landmark.create(name: params[:landmark][:name])
+    end
 
     redirect to "figures/#{@figure.id}"
   end
