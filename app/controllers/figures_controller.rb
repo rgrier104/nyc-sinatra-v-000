@@ -60,6 +60,8 @@ class FiguresController < ApplicationController
     @figure = Figure.find(params[:id])
     @figure.update(params[:figure])
 
+    if params[:landmark][:name]
+
     redirect to "figures/#{@figure.id}"
   end
 
