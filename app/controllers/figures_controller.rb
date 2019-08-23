@@ -21,9 +21,9 @@ class FiguresController < ApplicationController
   end
 
   post '/figures' do
-
-    @figure = Figure.create(params[:figure])
   binding.pry
+    @figure = Figure.create(params[:figure])
+
     if !params[:figure][:landmark_ids].empty?
       @figure.landmarks << Landmark.find(params[:figure][:landmark_ids])
     else
